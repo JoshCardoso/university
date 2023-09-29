@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/dist/output.css" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,1,0" />
+  <script src="/js/main.js" defer></script>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         <div class="flex flex-col text-white my-3 mx-4">
           <a class="flex text-white my-1" href="">
             <span class="mx-2 material-symbols-outlined">
-              manage_accounts </span>Permisos</a>
+              manage_accounts </span>permission</a>
 
           <a class="flex text-white my-1" href="">
             <span class="mx-2 material-symbols-outlined">
@@ -37,15 +37,15 @@
                 interactive_space
               </span>
             </span>
-            Maestros
+            Teacher
           </a>
           <a class="flex text-white my-1" href="">
             <span class="mx-2 material-symbols-outlined"> school </span>
-            Alumnos
+            Students
           </a>
           <a class="flex text-white my-1" href="">
             <span class="mx-2 material-symbols-outlined"> monitor </span>
-            Clases
+            Class
           </a>
         </div>
       </div>
@@ -78,8 +78,25 @@
       </section>
     </div>
   </div>
-  <div id="dropMenu"
-    class="bg-white shadow-xl w-[130px] h-[100px] absolute top-[70px] right-1 rounded-md hidden flex-col items-center justify-evenly">
+  <div id="dropMenu" class="bg-white shadow-xl w-[130px] h-[100px] absolute top-[70px] right-1 rounded-md hidden flex-col items-center justify-evenly">
+    <a class="w-full flex justify-center items-center cursor-pointer" href="">
+      <span class="material-symbols-outlined mx-2">
+        account_circle
+      </span>
+      <p>
+        Perfil
+      </p>
+    </a>
+    <a class="border-t w-full flex justify-center items-center py-2 cursor-pointer" href="">
+      <span class="material-symbols-outlined mx-2 text-red-600">
+        logout
+      </span>
+      <p class="text-red-600">
+        Logout
+      </p>
+    </a>
+  </div>
+  <div id="dropMenu" class="bg-white shadow-xl w-[130px] h-[100px] absolute top-[70px] right-1 rounded-md hidden flex-col items-center justify-evenly">
     <a class="w-full flex justify-center items-center cursor-pointer" href="">
       <span class="material-symbols-outlined mx-2">
         account_circle

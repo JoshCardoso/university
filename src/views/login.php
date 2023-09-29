@@ -12,7 +12,7 @@
     <div class="bg-[#FFF5D2] w-screen h-screen flex flex-col justify-center items-center">
         <img src="../../public/logo.jpg" alt="logo" class="w-[450px] h-[250px] object-cover">
         <div class="w-[350px] h-[300px] bg-white rounded-xl shadow-2xl my-5 py-6 flex flex-col  items-center">
-            <form action="" method="post">
+            <form action="/src/index.php" method="post">
                 <div class="flex justify-center items-center">
                     <p class="my-5 text-gray-500">Welcome login with your account</p>
                 </div>
