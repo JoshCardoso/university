@@ -26,28 +26,55 @@
         <h1 class="text-gray-400 w-full flex justify-center">
           Menu Admistration
         </h1>
-        <div class="flex flex-col text-white my-3 mx-4">
-          <a class="flex text-white my-1" href="">
-            <span class="mx-2 material-symbols-outlined">
-              manage_accounts </span>permission</a>
+        <?php
+        switch ($_SESSION['user']['id_permissoes']) {
+          case "1": ?>
+            <div class="flex flex-col text-white my-3 mx-4">
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined">
+                  manage_accounts </span>permission</a>
 
-          <a class="flex text-white my-1" href="">
-            <span class="mx-2 material-symbols-outlined">
-              <span class="material-symbols-outlined">
-                interactive_space
-              </span>
-            </span>
-            Teacher
-          </a>
-          <a class="flex text-white my-1" href="">
-            <span class="mx-2 material-symbols-outlined"> school </span>
-            Students
-          </a>
-          <a class="flex text-white my-1" href="">
-            <span class="mx-2 material-symbols-outlined"> monitor </span>
-            Class
-          </a>
-        </div>
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined">
+                  <span class="material-symbols-outlined">
+                    interactive_space
+                  </span>
+                </span>
+                Teacher
+              </a>
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined"> school </span>
+                Students
+              </a>
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined"> monitor </span>
+                Class
+              </a>
+            </div>
+          <?php break;
+          case "2": ?>
+            <div class="flex flex-col text-white my-3 mx-4">
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined"> school </span>
+                Students
+              </a>
+            </div>
+          <?php break;
+          case "3": ?>
+            <div class="flex flex-col text-white my-3 mx-4">
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined">
+                  history_edu
+                </span>
+                Qualification 
+              </a>
+              <a class="flex text-white my-1" href="">
+                <span class="mx-2 material-symbols-outlined"> school </span>
+                Class
+              </a>
+            </div>
+        <?php break;
+        } ?>
       </div>
     </div>
     <div class="w-5/6">
