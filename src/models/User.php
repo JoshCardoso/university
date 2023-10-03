@@ -9,14 +9,28 @@ class User{
         $stmt->bindParam(':email', $e, PDO::PARAM_STR);
         $stmt->execute();
 
+        $stmt2 = $pdo->query("SELECT * 
+        FROM usuario u 
+        INNER JOIN permissoes p 
+        ON u.id_permissoes = p.id_permissao");
+        $resul2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['user2']= $resul2;
+
+        $stmt3 = $pdo->query("SELECT *
+        FROM class cl
+        INNER JOIN cursos c ON cl.id_curso = c.id_curso;
+        ");
+        $resul3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['class']= $resul3;
+
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            session_start();
+            
             $_SESSION['user']= $user[0];
         }else{
-            session_start();
+            
             $_SESSION["erro"] = "Incorrect password or email";
-            header("location: /src/index.php?erro=true");
+            //header("location: /src/index.php?erro=true");
         }
     }
 
@@ -27,7 +41,9 @@ class User{
             $login->typePerm();
         }else{
             $_SESSION["erro"] = "Incorrect password or email";
-            header("location: /src/index.php?erro=true");
+            //header("location: /src/index.php?erro=true");
         }
     }
+
+    
 }

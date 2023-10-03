@@ -18,8 +18,8 @@
       </div>
       <div class="py-2 flex justify-center border-slate-600 border-b">
         <div class="w-full mx-5">
-          <h2 class="text-white my-3">Admin</h2>
-          <h2 class="text-white my-3">Admistration</h2>
+        <h2 class="text-white my-3"><?= $_SESSION['user']['apelido'] ?></h2>
+          <h2 class="text-white my-3"><?= $_SESSION['user']['nome'] ?></h2>
         </div>
       </div>
       <div>
@@ -30,11 +30,11 @@
         switch ($_SESSION['user']['id_permissoes']) {
           case "1": ?>
             <div class="flex flex-col text-white my-3 mx-4">
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=adm_P">
                 <span class="mx-2 material-symbols-outlined">
                   manage_accounts </span>permission</a>
 
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=adm_T">
                 <span class="mx-2 material-symbols-outlined">
                   <span class="material-symbols-outlined">
                     interactive_space
@@ -42,11 +42,11 @@
                 </span>
                 Teacher
               </a>
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=adm_S">
                 <span class="mx-2 material-symbols-outlined"> school </span>
                 Students
               </a>
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=adm_C">
                 <span class="mx-2 material-symbols-outlined"> monitor </span>
                 Class
               </a>
@@ -54,7 +54,7 @@
           <?php break;
           case "2": ?>
             <div class="flex flex-col text-white my-3 mx-4">
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=tea_S">
                 <span class="mx-2 material-symbols-outlined"> school </span>
                 Students
               </a>
@@ -62,13 +62,13 @@
           <?php break;
           case "3": ?>
             <div class="flex flex-col text-white my-3 mx-4">
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=stu_Q">
                 <span class="mx-2 material-symbols-outlined">
                   history_edu
                 </span>
                 Qualification 
               </a>
-              <a class="flex text-white my-1" href="">
+              <a class="flex text-white my-1" href="/src/index.php?rota=stu_C">
                 <span class="mx-2 material-symbols-outlined"> school </span>
                 Class
               </a>
@@ -81,7 +81,7 @@
       <nav class="h-16 shadow-2xl flex items-center justify-between">
         <div class="flex items-center">
           <span class="material-symbols-outlined"> menu </span>
-          <a class="px-2" href="">Home</a>
+          <a class="px-2" href="/src/index.php">Home</a>
         </div>
         <div class="flex items-center cursor-pointer">
           <h1 id="modal2" class="px-5">Perfil</h1>
@@ -114,17 +114,17 @@
         Perfil
       </p>
     </a>
-    <a class="border-t w-full flex justify-center items-center py-2 cursor-pointer" href="">
-      <span class="material-symbols-outlined mx-2 text-red-600">
-        logout
-      </span>
-      <p class="text-red-600">
-        Logout
-      </p>
-    </a>
+    <a class="border-t w-full flex justify-center items-center py-2 cursor-pointer" href="/src/index.php?rota=logout">
+        <span class="material-symbols-outlined mx-2 text-red-600">
+          logout
+        </span>
+        <p class="text-red-600">
+          Logout
+        </p>
+      </a>
   </div>
   <div id="dropMenu" class="bg-white shadow-xl w-[130px] h-[100px] absolute top-[70px] right-1 rounded-md hidden flex-col items-center justify-evenly">
-    <a class="w-full flex justify-center items-center cursor-pointer" href="">
+    <a class="w-full flex justify-center items-center cursor-pointer" href="/src/index.php?rota=perfil">
       <span class="material-symbols-outlined mx-2">
         account_circle
       </span>
@@ -132,7 +132,7 @@
         Perfil
       </p>
     </a>
-    <a class="border-t w-full flex justify-center items-center py-2 cursor-pointer" href="">
+    <a class="border-t w-full flex justify-center items-center py-2 cursor-pointer" href="/src/index.php?rota=logout">
       <span class="material-symbols-outlined mx-2 text-red-600">
         logout
       </span>
