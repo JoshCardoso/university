@@ -17,11 +17,16 @@ class User{
         $_SESSION['user2']= $resul2;
 
         $stmt3 = $pdo->query("SELECT *
-        FROM class cl
-        INNER JOIN cursos c ON cl.id_curso = c.id_curso;
+        FROM cursos c
+        LEFT JOIN class cl ON c.id_curso = cl.id_curso
+        LEFT JOIN usuario u1 ON cl.id_teacher = u1.id_usuario;
         ");
         $resul3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['class']= $resul3;
+
+        $stmt4 = $pdo->query("SELECT * FROM usuario WHERE id_permissoes = 2;");
+        $resul4 = $stmt4->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['teacher']= $resul4;
 
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);

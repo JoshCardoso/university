@@ -91,7 +91,7 @@
                             expand_more
                         </span>
                     </div>
-                    
+
                 </div>
             </nav>
             <section>
@@ -102,7 +102,7 @@
                     <div class="w-[95%] m-4 shadow-xl rounded-xl">
                         <div class="w-full flex items-center justify-between h-14 border-b border-gray-200">
                             <h2 class="mx-5">Informações das classes</h2>
-                            <button class="mx-5 px-2 py-1 border border-blue-600 active:text-blue-600 active:bg-white bg-blue-600 text-white rounded-xl close">
+                            <button class="mx-5 px-2 py-1 border border-blue-600 active:text-blue-600 active:bg-white bg-blue-600 text-white rounded-xl closed">
                                 Agregar classes
                             </button>
                         </div>
@@ -120,14 +120,13 @@
                                 <tbody>
                                     <?php
                                     $class = $_SESSION['class'];
-                                    //var_dump($class);
                                     foreach ($class as $row) {
                                     ?>
                                         <tr>
                                             <td><?= $row['id_curso'] ?></td>
                                             <td><?= $row['curso'] ?></td>
-                                            <td><?= $row['id_teacher'] ?></td>
-                                            <td><?= $row['id_aluno'] ?></td>
+                                            <td><?= $row['nome'] ?></td>
+                                            <td></td>
                                             <td class="text-center">
                                                 <span class="material-symbols-outlined cursor-pointer closep">
                                                     edit_note
@@ -137,30 +136,33 @@
                                         <div class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modals">
                                             <div class="bg-white w-[450px] h-[330px] flex flex-col m-5 rounded-xl ">
                                                 <div class="flex m-4 justify-between">
-                                                    <h1 class="text-3xl">Edit Permission</h1>
-                                                    <span class="material-symbols-outlined closex cursor-pointer"> close </span>
+                                                    <h1 class="text-3xl">Edit Class</h1>
+                                                    <span class="material-symbols-outlined closed cursor-pointer"> close </span>
                                                 </div>
-                                                <form action="/src/controllers/AlteracoesController.php" method="post">
+                                                <form action="/src/controllers/EditController.php" method="post">
                                                     <div class="border-y border-gray-200 px-4 py-5">
                                                         <div class="flex flex-col">
-                                                            <input type="text" name="id" value="" hidden />
+                                                            <input type="text" name="id" value="<?= $row['id_curso'] ?>" hidden />
                                                             <label class="font-semibold py-2" for="email">Subject Name</label>
                                                             <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="materia" id="materia" placeholder="Materia" value=<?= $row['curso'] ?> />
                                                         </div>
                                                         <div class="flex flex-col">
-                                                            <label class="font-semibold py-2" for="permissao">Permissoes</label>
+                                                            <label class="font-semibold py-2" for="permissao">Teacher</label>
                                                             <select name="permissao" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
-                                                                <option value="1">Admin</option>
-                                                                <option value="2">Teacher</option>
-                                                                <option value="3">Student</option>
+                                                                <?php
+                                                                $teacher = $_SESSION['teacher'];
+                                                                foreach ($teacher as $row) {
+                                                                ?>
+                                                                    <option value="<?= $row['id_usuario'] ?>"><?= $row['nome'] ?></option>
+                                                                <?php } ?>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="h-[60px] flex justify-end items-center px-4">
-                                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closeb">
+                                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closed">
                                                             <p>Close</p>
                                                         </div>
-                                                        <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Guardar Mudanças</button>
+                                                        <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Add Teacher</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -168,6 +170,40 @@
                                     <?php } ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div id="modalAdd" class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modalAdd">
+                            <div class="bg-white w-[450px] h-[330px] flex flex-col m-5 rounded-xl ">
+                                <div class="flex m-4 justify-between">
+                                    <h1 class="text-3xl">Add Class</h1>
+                                    <span class="material-symbols-outlined closex cursor-pointer"> close </span>
+                                </div>
+                                <form action="/src/controllers/AddClassController.php" method="post">
+                                    <div class="border-y border-gray-200 px-4 py-5">
+                                        <div class="flex flex-col">
+                                            <input type="text" name="id" value="" hidden />
+                                            <label class="font-semibold py-2" for="email">Subject Name</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="materia" id="materia" placeholder="Materia"/>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <label class="font-semibold py-2" for="permissao">Teacher</label>
+                                            <select name="permissao" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
+                                                <?php
+                                                $teacher = $_SESSION['teacher'];
+                                                foreach ($teacher as $row) {
+                                                ?>
+                                                    <option value="<?= $row['id_usuario'] ?>"><?= $row['nome'] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="h-[60px] flex justify-end items-center px-4">
+                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closeb">
+                                            <p>Close</p>
+                                        </div>
+                                        <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Add Teacher</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
