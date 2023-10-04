@@ -28,6 +28,13 @@ class User{
         $resul4 = $stmt4->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['teacher']= $resul4;
 
+        $stmt5 = $pdo->query("SELECT u.*, c.*, s.*
+        FROM usuario u
+        LEFT JOIN class c ON u.id_usuario = c.id_teacher
+        LEFT JOIN cursos s ON c.id_curso = s.id_curso
+        WHERE u.id_permissoes = 2");
+        $resul5 = $stmt5->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['teachers'] = $resul5;
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
