@@ -137,7 +137,7 @@
                                             <div class="bg-white w-[450px] h-[330px] flex flex-col m-5 rounded-xl ">
                                                 <div class="flex m-4 justify-between">
                                                     <h1 class="text-3xl">Edit Class</h1>
-                                                    <span class="material-symbols-outlined closed cursor-pointer"> close </span>
+                                                    <span class="material-symbols-outlined closex cursor-pointer"> close </span>
                                                 </div>
                                                 <form action="/src/controllers/EditController.php" method="post">
                                                     <div class="border-y border-gray-200 px-4 py-5">
@@ -159,7 +159,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="h-[60px] flex justify-end items-center px-4">
-                                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closed">
+                                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closeb">
                                                             <p>Close</p>
                                                         </div>
                                                         <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Add Teacher</button>
@@ -171,11 +171,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div id="modalAdd" class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modalAdd">
+                        <div class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modalAdd">
                             <div class="bg-white w-[450px] h-[330px] flex flex-col m-5 rounded-xl ">
                                 <div class="flex m-4 justify-between">
                                     <h1 class="text-3xl">Add Class</h1>
-                                    <span class="material-symbols-outlined closex cursor-pointer"> close </span>
+                                    <span class="material-symbols-outlined closed cursor-pointer"> close </span>
                                 </div>
                                 <form action="/src/controllers/AddClassController.php" method="post">
                                     <div class="border-y border-gray-200 px-4 py-5">
@@ -187,6 +187,7 @@
                                         <div class="flex flex-col">
                                             <label class="font-semibold py-2" for="permissao">Teacher</label>
                                             <select name="permissao" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
+                                                <option value=""></option>
                                                 <?php
                                                 $teacher = $_SESSION['teacher'];
                                                 foreach ($teacher as $row) {
@@ -197,7 +198,7 @@
                                         </div>
                                     </div>
                                     <div class="h-[60px] flex justify-end items-center px-4">
-                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closeb">
+                                        <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closed">
                                             <p>Close</p>
                                         </div>
                                         <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Add Teacher</button>
