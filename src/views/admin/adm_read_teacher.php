@@ -97,7 +97,7 @@
             <section>
                 <div>
                     <div>
-                        <h1 class="flex text-3xl m-4">Lista de Classes</h1>
+                        <h1 class="flex text-3xl m-4">Lista de Teacher</h1>
                     </div>
                     <div class="w-[95%] m-4 shadow-xl rounded-xl">
                         <div class="w-full flex items-center justify-between h-14 border-b border-gray-200">
@@ -138,39 +138,41 @@
                                             </td>
                                         </tr>
                                         <div class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modals">
-                                            <div class="bg-white w-[450px] h-[600px] flex flex-col m-5 rounded-xl ">
+                                            <div class="bg-white w-[450px] h-[620px] flex flex-col m-5 rounded-xl ">
                                                 <div class="flex m-4 justify-between">
-                                                    <h1 class="text-3xl">Edit Class</h1>
+                                                    <h1 class="text-3xl">Edit Teacher</h1>
                                                     <span class="material-symbols-outlined closex cursor-pointer"> close </span>
                                                 </div>
-                                                <form action="/src/controllers/AddTeacherController.php" method="post">
+                                                <form action="/src/controllers/EditTeacherController.php" method="post">
                                                     <div class="border-y border-gray-200 px-4 py-5">
                                                         <div class="flex flex-col">
                                                             <input type="text" name="id" value="<?= $row['id_usuario'] ?>" hidden />
                                                             <label class="font-semibold py-2" for="nome">Name</label>
-                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="nome" id="nome" placeholder="Nome" value=<?= $row['nome'] ?> />
+                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="nome" id="nome" value="<?= $row['nome'] ?>" />
 
                                                             <label class="font-semibold py-2" for="ape">Apelido</label>
-                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="ape" id="ape" placeholder="Materia" value=<?= $row['apelido'] ?> />
+                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="ape" id="ape" placeholder="Materia" value="<?= $row['apelido'] ?>" />
 
                                                             <label class="font-semibold py-2" for="email">Email</label>
-                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="email" id="email"  value=<?= $row['email'] ?> />
+                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="email" id="email" value="<?= $row['email'] ?>" />
 
                                                             <label class="font-semibold py-2" for="end">Endereço</label>
-                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="end" id="end"  value=<?= $row['endereco'] ?> />
+                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="end" id="end" value="<?= $row['endereco'] ?>" />
 
                                                             <label class="font-semibold py-2" for="niver">Data de Nascimento</label>
-                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="date" name="niver" id="niver"  value=<?= $row['nascimento'] ?> />
+                                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="date" name="niver" id="niver" value="<?= $row['nascimento'] ?>" />
 
                                                         </div>
                                                         <div class="flex flex-col">
-                                                            <label class="font-semibold py-2" for="permissao">Teacher</label>
-                                                            <select name="permissao" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
+                                                            <label class="font-semibold py-2" for="permissao">Class</label>
+                                                            <select name="id_class" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
+                                                                <option value="<?= $row['curso'] ?>"><?= $row['curso'] ?></option>
+                                                                <option value=""></option>
                                                                 <?php
-                                                                $teacher = $_SESSION['teacher'];
-                                                                foreach ($teacher as $row) {
+                                                                $class = $_SESSION['class'];
+                                                                foreach ($class as $row) {
                                                                 ?>
-                                                                    <option value=""></option>
+                                                                    <option value="<?= $row['curso_id'] ?>"><?= $row['curso'] ?></option>
                                                                 <?php } ?>
                                                             </select>
                                                         </div>
@@ -179,7 +181,7 @@
                                                         <div class="flex justify-end px-4 py-1 border border-gray-600 active:text-gray-600 active:bg-white text-white bg-gray-600 rounded-lg cursor-pointer mx-2 closeb">
                                                             <p>Close</p>
                                                         </div>
-                                                        <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Add Teacher</button>
+                                                        <button type="submit" class="px-4 py-1 border border-blue-600 bg-blue-600 text-white rounded-lg active:bg-white active:text-blue-600">Edit Teacher</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -189,7 +191,7 @@
                             </table>
                         </div>
                         <div class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modalAdd">
-                            <div class="bg-white w-[450px] h-[330px] flex flex-col m-5 rounded-xl ">
+                            <div class="bg-white w-[450px] h-[620px] flex flex-col m-5 rounded-xl ">
                                 <div class="flex m-4 justify-between">
                                     <h1 class="text-3xl">Add Class</h1>
                                     <span class="material-symbols-outlined closed cursor-pointer"> close </span>
@@ -197,19 +199,31 @@
                                 <form action="/src/controllers/AddClassController.php" method="post">
                                     <div class="border-y border-gray-200 px-4 py-5">
                                         <div class="flex flex-col">
-                                            <input type="text" name="id" value="" hidden />
-                                            <label class="font-semibold py-2" for="email">Subject Name</label>
-                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="materia" id="materia" placeholder="Materia" />
+
+                                            <label class="font-semibold py-2" for="nome">Name</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="nome" id="nome" value="" placeholder="nome" />
+
+                                            <label class="font-semibold py-2" for="ape">Apelido</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="ape" id="ape" placeholder="apelido" value="" />
+
+                                            <label class="font-semibold py-2" for="email">Email</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="email" id="email" value="" placeholder="Email@" />
+
+                                            <label class="font-semibold py-2" for="end">Endereço</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="end" id="end" value="" placeholder="endereço" />
+
+                                            <label class="font-semibold py-2" for="niver">Data de Nascimento</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="date" name="niver" id="niver" value="" />
                                         </div>
                                         <div class="flex flex-col">
-                                            <label class="font-semibold py-2" for="permissao">Teacher</label>
+                                            <label class="font-semibold py-2" for="permissao">Class</label>
                                             <select name="permissao" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
                                                 <option value=""></option>
                                                 <?php
-                                                $teacher = $_SESSION['teachers'];
-                                                foreach ($teacher as $row) {
+                                                $class = $_SESSION['class'];
+                                                foreach ($class as $row) {
                                                 ?>
-                                                    <option value=""></option>
+                                                    <option value="<?= $row['curso_id'] ?>"><?= $row['curso'] ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
