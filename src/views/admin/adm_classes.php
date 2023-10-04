@@ -123,7 +123,7 @@
                                     foreach ($class as $row) {
                                     ?>
                                         <tr>
-                                            <td><?= $row['curso_id'] ?></td>
+                                            <td><?= $row['id_class'] ?></td>
                                             <td><?= $row['curso'] ?></td>
                                             <td><?= $row['nome'] ?></td>
                                             <td></td>
@@ -142,7 +142,7 @@
                                                 <form action="/src/controllers/EditController.php" method="post">
                                                     <div class="border-y border-gray-200 px-4 py-5">
                                                         <div class="flex flex-col">
-                                                            <input type="text" name="id" value="<?= $row['curso_id'] ?>" hidden />
+                                                            <input type="text" name="id" value="<?= $row['id_class'] ?>" hidden />
                                                             <label class="font-semibold py-2" for="email">Subject Name</label>
                                                             <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="materia" id="materia" placeholder="Materia" value=<?= $row['curso'] ?> />
                                                         </div>

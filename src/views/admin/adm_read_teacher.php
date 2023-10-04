@@ -103,7 +103,7 @@
                         <div class="w-full flex items-center justify-between h-14 border-b border-gray-200">
                             <h2 class="mx-5">Informações das classes</h2>
                             <button class="mx-5 px-2 py-1 border border-blue-600 active:text-blue-600 active:bg-white bg-blue-600 text-white rounded-xl closed">
-                                Agregar classes
+                                Add Teacher
                             </button>
                         </div>
                         <div class="border-t p-5">
@@ -116,7 +116,7 @@
                                         <th>Endereço</th>
                                         <th>Data de Nascimento</th>
                                         <th>Classe Asignada</th>
-                                        <th>Active</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -191,12 +191,12 @@
                             </table>
                         </div>
                         <div class="absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 hidden justify-center z-50 modalAdd">
-                            <div class="bg-white w-[450px] h-[620px] flex flex-col m-5 rounded-xl ">
+                            <div class="bg-white w-[450px] h-[720px] flex flex-col m-5 rounded-xl ">
                                 <div class="flex m-4 justify-between">
-                                    <h1 class="text-3xl">Add Class</h1>
+                                    <h1 class="text-3xl">Add Teacher</h1>
                                     <span class="material-symbols-outlined closed cursor-pointer"> close </span>
                                 </div>
-                                <form action="/src/controllers/AddClassController.php" method="post">
+                                <form action="/src/controllers/AddTeacherController.php" method="post">
                                     <div class="border-y border-gray-200 px-4 py-5">
                                         <div class="flex flex-col">
 
@@ -214,6 +214,9 @@
 
                                             <label class="font-semibold py-2" for="niver">Data de Nascimento</label>
                                             <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="date" name="niver" id="niver" value="" />
+
+                                            <label class="font-semibold py-2" for="psswd">Password</label>
+                                            <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="psswd" id="psswd" value="" placeholder="Password" />
                                         </div>
                                         <div class="flex flex-col">
                                             <label class="font-semibold py-2" for="permissao">Class</label>
