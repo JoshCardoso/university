@@ -16,7 +16,7 @@ class User{
         $resul2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['user2']= $resul2;
 
-        $stmt3 = $pdo->query("SELECT *
+        $stmt3 = $pdo->query("SELECT c.id_curso AS curso_id, c.curso, u1.nome
         FROM cursos c
         LEFT JOIN class cl ON c.id_curso = cl.id_curso
         LEFT JOIN usuario u1 ON cl.id_teacher = u1.id_usuario;

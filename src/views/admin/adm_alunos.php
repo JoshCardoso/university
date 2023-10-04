@@ -33,7 +33,7 @@
                         <div class="flex flex-col text-white my-3 mx-4">
                             <a class="flex text-white my-1" href="/src/index.php?rota=adm_P">
                                 <span class="mx-2 material-symbols-outlined">
-                                    manage_accounts </span>permission</a>
+                                    manage_accounts </span>Permission</a>
 
                             <a class="flex text-white my-1" href="/src/index.php?rota=adm_T">
                                 <span class="mx-2 material-symbols-outlined">

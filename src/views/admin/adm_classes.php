@@ -33,7 +33,7 @@
                         <div class="flex flex-col text-white my-3 mx-4">
                             <a class="flex text-white my-1" href="/src/index.php?rota=adm_P">
                                 <span class="mx-2 material-symbols-outlined">
-                                    manage_accounts </span>permission</a>
+                                    manage_accounts </span>Permission</a>
 
                             <a class="flex text-white my-1" href="/src/index.php?rota=adm_T">
                                 <span class="mx-2 material-symbols-outlined">
@@ -123,7 +123,7 @@
                                     foreach ($class as $row) {
                                     ?>
                                         <tr>
-                                            <td><?= $row['id_curso'] ?></td>
+                                            <td><?= $row['curso_id'] ?></td>
                                             <td><?= $row['curso'] ?></td>
                                             <td><?= $row['nome'] ?></td>
                                             <td></td>
@@ -142,7 +142,7 @@
                                                 <form action="/src/controllers/EditController.php" method="post">
                                                     <div class="border-y border-gray-200 px-4 py-5">
                                                         <div class="flex flex-col">
-                                                            <input type="text" name="id" value="<?= $row['id_curso'] ?>" hidden />
+                                                            <input type="text" name="id" value="<?= $row['curso_id'] ?>" hidden />
                                                             <label class="font-semibold py-2" for="email">Subject Name</label>
                                                             <input class="h-7 border border-gray-300 rounded-lg px-3 py-4" type="text" name="materia" id="materia" placeholder="Materia" value=<?= $row['curso'] ?> />
                                                         </div>
