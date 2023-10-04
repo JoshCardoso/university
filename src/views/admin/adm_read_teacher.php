@@ -166,13 +166,13 @@
                                                         <div class="flex flex-col">
                                                             <label class="font-semibold py-2" for="permissao">Class</label>
                                                             <select name="id_class" id="permissao" class="h-9 border border-gray-300 rounded-lg ">
-                                                                <option value="<?= $row['curso'] ?>"><?= $row['curso'] ?></option>
+                                                                <option value="<?= $row['id_class'] ?>"><?= $row['curso'] ?></option>
                                                                 <option value=""></option>
                                                                 <?php
                                                                 $class = $_SESSION['class'];
                                                                 foreach ($class as $row) {
                                                                 ?>
-                                                                    <option value="<?= $row['curso_id'] ?>"><?= $row['curso'] ?></option>
+                                                                    <option value="<?= $row['id_class'] ?>"><?= $row['curso'] ?></option>
                                                                 <?php } ?>
                                                             </select>
                                                         </div>

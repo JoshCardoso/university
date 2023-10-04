@@ -30,12 +30,19 @@ LEFT JOIN usuario u1 ON cl.id_teacher = u1.id_usuario;");
 $resul3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
 $_SESSION['class'] = $resul3;
 
+$stmt2 = $pdo->query("SELECT * 
+FROM usuario u 
+INNER JOIN permissoes p 
+ON u.id_permissoes = p.id_permissao");
+$resul2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+$_SESSION['user2'] = $resul2;
+
 
 $stmt5 = $pdo->query("SELECT u.*, c.*, s.*
-        FROM usuario u
-        LEFT JOIN class c ON u.id_usuario = c.id_teacher
-        LEFT JOIN cursos s ON c.id_curso = s.id_curso
-        WHERE u.id_permissoes = 2");
+FROM usuario u
+LEFT JOIN class c ON u.id_usuario = c.id_teacher
+LEFT JOIN cursos s ON c.id_curso = s.id_curso
+WHERE u.id_permissoes = 2");
 $resul5 = $stmt5->fetchAll(PDO::FETCH_ASSOC);
 $_SESSION['teachers'] = $resul5;
 
