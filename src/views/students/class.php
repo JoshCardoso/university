@@ -99,12 +99,12 @@
             <section>
                 <div>
                     <div>
-                        <h1 class="flex text-3xl m-4">List Students</h1>
+                        <h1 class="flex text-3xl m-4">Lista de Materias</h1>
                     </div>
                     <div class="flex">
                         <div class="border w-[95%] m-4 shadow-xl rounded-xl">
                             <div class="w-full flex items-center justify-between h-14 border-b border-gray-200">
-                                <h2 class="mx-5">student information</h2>
+                                <h2 class="mx-5">informações das materias</h2>
                             </div>
                             <div class="border-t p-5">
                                 <table id="myTable" class="display">
