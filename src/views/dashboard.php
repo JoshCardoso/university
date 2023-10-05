@@ -19,7 +19,12 @@
       <div class="py-2 flex justify-center border-slate-600 border-b">
         <div class="w-full mx-5">
         <h2 class="text-white my-3"><?= $_SESSION['user']['apelido'] ?></h2>
-          <h2 class="text-white my-3"><?= $_SESSION['user']['nome'] ?></h2>
+          <h2 class="text-white my-3">
+          <?php if($_SESSION['user']['id_permissoes'] == 2){
+            echo "Teacher" . "";
+          } ?>  
+          <?= $_SESSION['user']['nome'] ?>
+        </h2>
         </div>
       </div>
       <div>
@@ -84,7 +89,7 @@
           <a class="px-2" href="/src/index.php">Home</a>
         </div>
         <div class="flex items-center cursor-pointer">
-          <h1 id="modal2" class="px-5">Perfil</h1>
+          <h1 id="modal2" class="px-5"><?= $_SESSION['user']['apelido'] ?></h1>
           <span class="material-symbols-outlined">
             expand_more
           </span>

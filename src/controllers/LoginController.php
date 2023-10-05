@@ -49,11 +49,11 @@ class Teacher {
 
 class Students {
     public function qualification(){
-        
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/src/views/students/qualification.php");
     }
     public function class(){
-        
-    }
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/src/views/students/class.php");
+}
 }
 
 class Perfil {

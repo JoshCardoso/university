@@ -84,7 +84,7 @@
           <a class="px-2" href="/src/index.php">Home</a>
         </div>
         <div class="flex items-center cursor-pointer">
-          <h1 id="modal2" class="px-5">Perfil</h1>
+          <h1 id="modal2" class="px-5"><?= $_SESSION['user']['apelido'] ?></h1>
           <span class="material-symbols-outlined">
             expand_more
           </span>
