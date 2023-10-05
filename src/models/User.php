@@ -35,6 +35,13 @@ class User{
         WHERE u.id_permissoes = 2");
         $resul5 = $stmt5->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['teachers'] = $resul5;
+
+        $stmt6 = $pdo->query("SELECT *
+        FROM usuario u
+        WHERE u.id_permissoes = 3");
+        $resul6 = $stmt6->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['students'] = $resul6;
+
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
