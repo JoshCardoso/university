@@ -43,7 +43,7 @@ class Admin {
 
 class Teacher {
     public function students(){
-        
+        require_once($_SERVER['DOCUMENT_ROOT'] . "/src/views/teacher/students.php");
     }
 }
 
