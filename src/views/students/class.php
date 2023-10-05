@@ -124,9 +124,14 @@
                                                 <td><?= $row['id_class'] ?></td>
                                                 <td><?= $row['curso'] ?></td>
                                                 <td>
+                                                    <form action="/src/controllers/Delete_mathController.php" method="post">
+                                                    <input type="text" name="idmath" value="<?= $row['id_materia'] ?>" hidden>
+                                                    <button>
                                                     <span class="material-symbols-outlined text-red-600">
                                                         disabled_by_default
                                                     </span>
+                                                    </button>
+                                                    </form>
                                                 </td>
                                             </tr>
 
