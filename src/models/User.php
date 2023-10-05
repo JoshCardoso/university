@@ -42,6 +42,14 @@ class User{
         $resul6 = $stmt6->fetchAll(PDO::FETCH_ASSOC);
         $_SESSION['students'] = $resul6;
 
+        $stmt7 = $pdo->query("SELECT *
+        FROM smateria sm
+        INNER JOIN class c ON sm.id_class = c.id_class
+        INNER JOIN usuario u ON sm.id_aluno = u.id_usuario
+        INNER JOIN cursos co ON c.id_curso = co.id_curso;");
+        $resul7 = $stmt7->fetchAll(PDO::FETCH_ASSOC);
+        $_SESSION['aluno_class'] = $resul7;
+
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
             

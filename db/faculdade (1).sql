@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/10/2023 às 19:53
+-- Tempo de geração: 05/10/2023 às 20:24
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -101,6 +101,26 @@ INSERT INTO `permissoes` (`id_permissao`, `tipo`) VALUES
 (1, 'admin'),
 (2, 'teacher'),
 (3, 'students');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `smateria`
+--
+
+CREATE TABLE `smateria` (
+  `id_materia` int(11) NOT NULL,
+  `id_class` int(11) DEFAULT NULL,
+  `id_aluno` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `smateria`
+--
+
+INSERT INTO `smateria` (`id_materia`, `id_class`, `id_aluno`) VALUES
+(1, 7, 3),
+(2, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -209,6 +229,14 @@ ALTER TABLE `permissoes`
   ADD PRIMARY KEY (`id_permissao`);
 
 --
+-- Índices de tabela `smateria`
+--
+ALTER TABLE `smateria`
+  ADD PRIMARY KEY (`id_materia`),
+  ADD KEY `id_class` (`id_class`),
+  ADD KEY `id_aluno` (`id_aluno`);
+
+--
 -- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
@@ -239,6 +267,12 @@ ALTER TABLE `permissoes`
   MODIFY `id_permissao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `smateria`
+--
+ALTER TABLE `smateria`
+  MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
@@ -247,6 +281,13 @@ ALTER TABLE `usuario`
 --
 -- Restrições para tabelas despejadas
 --
+
+--
+-- Restrições para tabelas `smateria`
+--
+ALTER TABLE `smateria`
+  ADD CONSTRAINT `smateria_ibfk_1` FOREIGN KEY (`id_class`) REFERENCES `class` (`id_class`),
+  ADD CONSTRAINT `smateria_ibfk_2` FOREIGN KEY (`id_aluno`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Restrições para tabelas `usuario`
