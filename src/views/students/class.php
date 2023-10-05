@@ -146,7 +146,7 @@
                                 <div  class="max-h-56  overflow-y-auto p-4 bg-gray-100 rounded-md m-5">
                                 <div class="space-y-2">
                                     <?php
-                                    $class = $_SESSION['class'];
+                                    $class = $_SESSION['aluno_class_d'];
                                     foreach ($class as $row) {
                                     ?>
                                         <div class="flex items-center space-x-2">
