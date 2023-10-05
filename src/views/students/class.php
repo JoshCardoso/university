@@ -142,7 +142,7 @@
                             <div class="w-full flex items-center justify-between h-14 border-b border-gray-200">
                                 <h2 class="mx-5">Escolha suas materias uma a uma</h2>
                             </div>
-                            <form action="processar_formulario.php" method="post">
+                            <form action="/src/controllers/Insert_smateriaController.php" method="post">
                                 <div  class="max-h-56  overflow-y-auto p-4 bg-gray-100 rounded-md m-5">
                                 <div class="space-y-2">
                                     <?php
@@ -150,7 +150,7 @@
                                     foreach ($class as $row) {
                                     ?>
                                         <div class="flex items-center space-x-2">
-                                            <input type="radio" id="<?= $row['curso'] ?>" name="materia" value="">
+                                            <input type="radio" id="<?= $row['curso'] ?>" name="materia" value="<?= $row['id_class'] ?>">
                                             <label for="<?= $row['curso'] ?>"><?= $row['curso'] ?></label><br>
                                         </div>
                                     <?php } ?>
