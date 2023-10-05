@@ -117,12 +117,12 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $students = $_SESSION['students'];
+                                        $students = $_SESSION['aluno_class'];
                                         foreach ($students as $row) {
                                         ?>
                                             <tr>
-                                                <td><?= $row['id_usuario'] ?></td>
-                                                <td><?= $row['dni'] ?></td>
+                                                <td><?= $row['curso'] ?></td>
+                                                <td><?= $row['id_class'] ?></td>
                                                 <td>
                                                     <span class="material-symbols-outlined text-red-600">
                                                         disabled_by_default
