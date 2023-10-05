@@ -121,8 +121,8 @@
                                         foreach ($students as $row) {
                                         ?>
                                             <tr>
-                                                <td><?= $row['curso'] ?></td>
                                                 <td><?= $row['id_class'] ?></td>
+                                                <td><?= $row['curso'] ?></td>
                                                 <td>
                                                     <span class="material-symbols-outlined text-red-600">
                                                         disabled_by_default
